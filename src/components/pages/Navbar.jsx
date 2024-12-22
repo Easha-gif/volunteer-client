@@ -1,10 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "./AuthProvider";
 
 const Navbar = () => {
   const {user,handleSignOut}=useContext(AuthContext)
+
+
+
   return (
     <div>
       <div className="navbar bg-green-100 p-4 rounded-md">
@@ -39,20 +42,28 @@ const Navbar = () => {
      <NavLink  className="text-green-700 font-bold text-base"  to='/allPosts'>All posts</NavLink>
     </ul>
   </div>
-  <div className="navbar-end">
-  {user?<div className=" flex items-center"><div className="dropdown">
-  <div tabIndex={0} role="button" className="mr-4 text-base font-bold text-green-500">My Profile</div>
-  <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-60 -ml-16 p-2 shadow">
-    <li><Link className="text-green-700 font-bold text-sm">Add Volunteer Post</Link></li>
-    <li><Link className="text-green-700 font-bold text-sm">Manage My Posts </Link></li>
-    <li onClick={ handleSignOut}><p className="text-green-700 font-bold text-base">Log-out</p></li>
+  <div className="navbar-end flex">
+  {user?<div className="flex items-center gap-2">
+    <div className="dropdown dropdown-end">
+  <div tabIndex={0} role="button" className="m-1 text-green-800 text-lg font-bold">My Profile</div>
+  <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-50 w-60 p-4 shadow">
+  <Link to="/addPost" className="text-base text-green-400 font-bold my-4 btn">Add Volunteer need Post</Link>
+  <Link className="text-base text-green-400 font-bold btn">Manage My Posts</Link>
+  <button onClick={handleSignOut}  className="text-base text-green-600 font-bold btn bg-green-300 my-4">Log-Out</button>
   </ul>
 </div>
-<img className="w-14 h-14 object-cover rounded-full border-2 border-green-200 hover:border-green-400" src={user?.photoURL} alt="" />
+<div className="dropdown dropdown-hover">
+  <div tabIndex={0} role="button" className="m-1"><img title={`${user?.displayName} ${user?.email}`} className="w-14 h-14 object-cover rounded-full border-2 border-green-200 hover:border-green-400" src={user?.photoURL} alt="" /></div>
+  <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-50 w-36 p-2 -ml-10 shadow">
+    <li className="text-base text-green-600 font-bold">{user?.displayName}</li>
+    <li><button onClick={handleSignOut}  className="text-base text-red-600 font-bold">Log-Out</button></li>
+  </ul>
+</div>
+
 </div>:<Link to='/login' className="btn bg-green-600 text-white font-bold text-lg">Login</Link>}
   </div>
 </div>
-    </div>
+</div>
   );
 };
 

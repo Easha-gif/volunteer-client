@@ -11,6 +11,7 @@ import Register from './components/routes/Register.jsx';
 import AuthProvider from './components/pages/AuthProvider.jsx';
 import Slider from './components/pages/Slider.jsx';
 import Home from './components/routes/Home.jsx';
+import AddPost from './components/AddPost.jsx';
 
 
 const router = createBrowserRouter([
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path:'/register',
         element:<Register></Register> ,
+      },
+      {
+        path:'/addPost',
+        element:<AddPost></AddPost>
       }
     ]
   },

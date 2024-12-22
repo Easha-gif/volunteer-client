@@ -58,6 +58,7 @@ useEffect(()=>{
         console.log(currentUser)
        if(currentUser){ 
         setUser(currentUser)
+        setLoading(false)
     }
     else{
         setUser(null)

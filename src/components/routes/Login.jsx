@@ -21,6 +21,7 @@ handleSignIn(email,password)
     icon: 'success',
     confirmButtonText: 'okay'
   })
+  navigate("/")
 })
 .catch(error=>Swal.fire({
   title: 'Something wrong!',

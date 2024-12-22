@@ -25,7 +25,7 @@ const Slider = () => {
         modules={[Autoplay, Pagination, Navigation]}
       >
         <SwiperSlide>
-            <div className='w-full h-[38rem] bg-cover bg-center '  style={{backgroundImage:`url(${img1})`}}>
+            <div className='w-full h-[38rem] bg-cover bg-center'  style={{backgroundImage:`url(${img1})`}}>
             <div className='w-full h-full flex flex-col justify-center text-center gap-5'>
        <h1 className='text-5xl text-white font-bold'>Welcome to Volunteer <br></br>management site</h1>
        <p className='text-base text-white font-bold'>Here you will find various information about volunteers.<br></br>And can join as a volunteer</p>
@@ -33,14 +33,14 @@ const Slider = () => {
        </div>
             </div>
         </SwiperSlide>
-        <SwiperSlide> <div className='w-full h-[38rem]  bg-cover bg-center object-cover' style={{backgroundImage:`url(${img3})`}}>
+        <SwiperSlide> <div className='w-full h-[38rem] bg-cover bg-center object-cover' style={{backgroundImage:`url(${img3})`}}>
         <div className='w-full h-full '>
        <h1 className='text-5xl text-red-600 font-bold pt-36 ml-28'>To views this site please <br></br>login or Register</h1>
        <p className='text-base text-gray-700 ml-36 pt-5'>Here you will find various information about volunteers.<br></br>And can join as a volunteer</p>
        <button className='btn bg-red-500 w-36 ml-36 mt-5'>View More</button>
        </div>
             </div></SwiperSlide>
-        <SwiperSlide> <div  className='w-full h-[38rem]  bg-cover bg-center' style={{backgroundImage:`url(${img4})`}}>
+        <SwiperSlide> <div  className='w-full h-[38rem] bg-cover bg-center' style={{backgroundImage:`url(${img4})`}}>
         <div className='w-full h-full flex flex-col justify-center text-center gap-5'>
        <h1 className='text-5xl text-green-900 font-bold'>Here you see different <br></br>volunteers</h1>
        <p className='text-base text-gray-900'>Here you will find various information about volunteers.<br></br>And can join as a volunteer</p>
