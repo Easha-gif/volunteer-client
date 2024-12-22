@@ -52,7 +52,7 @@ const Navbar = () => {
   </ul>
 </div>
 <div className="dropdown dropdown-hover">
-  <div tabIndex={0} role="button" className="m-1"><img title={`${user?.displayName} ${user?.email}`} className="w-14 h-14 object-cover rounded-full border-2 border-green-200 hover:border-green-400" src={user?.photoURL} alt="" /></div>
+  <div tabIndex={0} role="button" className="m-1"><img title={`${user?.displayName} ${user?.email}`} className="w-12 h-12 object-cover rounded-full border-2 border-green-200 hover:border-green-400" src={user?.photoURL} alt="" /></div>
   <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-50 w-36 p-2 -ml-10 shadow">
     <li className="text-base text-green-600 font-bold">{user?.displayName}</li>
     <li><button onClick={handleSignOut}  className="text-base text-red-600 font-bold">Log-Out</button></li>

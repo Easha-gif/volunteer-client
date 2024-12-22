@@ -9,7 +9,7 @@ const AddPost = () => {
 
 const{user}=useContext(AuthContext)
 const [startDate , setStartDate] = useState(new Date())
-    const handleAddPostForm = (e) => {
+    const handleAddPostForm =async (e) => {
         e.preventDefault()
 
         const photo = e.target.photo.value;
@@ -26,20 +26,14 @@ const [startDate , setStartDate] = useState(new Date())
     const addInfo ={ photo, title, description, 
             category, location, need, deadline, userEmail, userName ,userPhoto}
 
-fetch(`${import.meta.env.VITE_APIHOST}/addPost`,{
-    method:'POST',
-    headers:{
-        'content-type':'application/json'
-    },
-    body:JSON.stringify(addInfo)
-})  
-.then(result=>{
-    result.json()
-})
-.then(data=>{
-    toast.success("volunteer post successfully added")
-})
-  }
+try{
+    await axios.post(`${import.meta.env.VITE_APIHOST}/addPost`,addInfo)
+    toast.success("post successfully added")
+}
+catch(err){
+console.log(err)
+}
+    }
 
 
     return (

@@ -9,10 +9,11 @@ import {
 import Login from './components/routes/Login.jsx';
 import Register from './components/routes/Register.jsx';
 import AuthProvider from './components/pages/AuthProvider.jsx';
-import Slider from './components/pages/Slider.jsx';
 import Home from './components/routes/Home.jsx';
 import AddPost from './components/AddPost.jsx';
 import { Toaster } from 'react-hot-toast';
+import AllPosts from './components/pages/AllPosts.jsx';
+import Details from './components/pages/Details.jsx';
 
 
 const router = createBrowserRouter([
@@ -36,7 +37,16 @@ const router = createBrowserRouter([
       {
         path:'/addPost',
         element:<AddPost></AddPost>
-      }
+      },
+      {
+        path:'/allPosts',
+        element:<AllPosts></AllPosts>,
+        
+      },
+      {
+        path:'/sortPost/:id',
+        element:<Details></Details>,
+      },
     ]
   },
 ]);
