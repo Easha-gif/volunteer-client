@@ -14,6 +14,7 @@ import AddPost from './components/AddPost.jsx';
 import { Toaster } from 'react-hot-toast';
 import AllPosts from './components/pages/AllPosts.jsx';
 import Details from './components/pages/Details.jsx';
+import BeAVolunteer from './components/pages/BeAVolunteer.jsx';
 
 
 const router = createBrowserRouter([
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path:'/sortPost/:id',
         element:<Details></Details>,
+      },
+      {
+        path:'/beVolunteer/:id',
+        element:<BeAVolunteer></BeAVolunteer>
       },
     ]
   },
