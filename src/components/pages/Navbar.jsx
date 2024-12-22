@@ -7,7 +7,6 @@ const Navbar = () => {
   const {user,handleSignOut}=useContext(AuthContext)
 
 
-
   return (
     <div>
       <div className="navbar bg-green-100 p-4 rounded-md">
@@ -47,9 +46,9 @@ const Navbar = () => {
     <div className="dropdown dropdown-end">
   <div tabIndex={0} role="button" className="m-1 text-green-800 text-lg font-bold">My Profile</div>
   <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-50 w-60 p-4 shadow">
-  <Link to="/addPost" className="text-base text-green-400 font-bold my-4 btn">Add Volunteer need Post</Link>
-  <Link className="text-base text-green-400 font-bold btn">Manage My Posts</Link>
-  <button onClick={handleSignOut}  className="text-base text-green-600 font-bold btn bg-green-300 my-4">Log-Out</button>
+  <Link to="/addPost" className="text-sm text-black font-bold my-4 btn">Add Volunteer Post</Link>
+  <Link className="text-sm text-black font-bold btn">Manage My Posts</Link>
+  <button onClick={handleSignOut}  className="text-sm text-black font-bold btn my-4">Log-Out</button>
   </ul>
 </div>
 <div className="dropdown dropdown-hover">

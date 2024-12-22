@@ -11,16 +11,19 @@ const AuthProvider = ({children}) => {
 
 // google signIn
 const handleGoogleSignIn = () =>{
+    setLoading(true)
  return signInWithPopup(auth ,provider)
 }
 
 // signup
 
 const handleSignUp = (email,password) =>{
+    setLoading(true)
   return  createUserWithEmailAndPassword(auth,email,password)
 }
 
 const handleSignIn = (email,password) =>{
+    setLoading(true)
   return  signInWithEmailAndPassword(auth,email,password)
 }
 

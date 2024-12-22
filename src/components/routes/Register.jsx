@@ -122,7 +122,7 @@ const handleLoginFrom = (e) =>{
                 <button className="btn btn-block bg-gray-400 text-xl text-gray-950 font-bold">Register</button>
               </div>
             </form>
-            <p className="text-lg font-bold text-gray-800 p-2">New to this website !! please <span className="text-red-500"><Link to='/login'>Login</Link></span></p>
+            <p className="text-lg font-bold text-gray-800 p-2">Already have an account !! please <span className="text-red-500"><Link to='/login'>Login</Link></span></p>
           </div>
         
         <div>
