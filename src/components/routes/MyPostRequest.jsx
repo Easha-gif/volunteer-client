@@ -3,22 +3,54 @@ import { AuthContext } from "../pages/AuthProvider";
 import axios from "axios";
 import { format } from "date-fns";
 import { FcRemoveImage } from "react-icons/fc";
+import Swal from "sweetalert2";
 
 
 const MyPostRequest = () => {
 const [myRequest, setMyRequest] = useState([])
 const {user}=useContext(AuthContext)
 
-    useEffect(()=>{
+useEffect(()=>{
   
-        const handlePostSortData =async ()=>{
-          const {data} = await axios.get(`${import.meta.env.VITE_APIHOST}/addBid/${user?.email}`)
+ handlePostSortData()
+ },[user.email])
         
-          setMyRequest(data)
-          }
-          handlePostSortData()
-        },[])
+const handlePostSortData =async ()=>{
+const {data} = await axios.get(`${import.meta.env.VITE_APIHOST}/addBid/${user?.email}`)
+
+setMyRequest(data)
+ }
         
+
+        
+const handleDelete = async(id)=>{
+  try{ 
+
+   Swal.fire({
+       title: "Are you sure?",
+       text: "You want to cancel this request!",
+       icon: "warning",
+       showCancelButton: true,
+       confirmButtonColor: "#3085d6",
+       cancelButtonColor: "#d33",
+       confirmButtonText: "Yes, cancel it!"
+     }).then(async(result) => {
+       if (result.isConfirmed) {
+  await axios.delete(`${import.meta.env.VITE_APIHOST}/bidDelete/${id}`)
+   handlePostSortData()
+         Swal.fire({
+           title: "Canceled!",
+           text: "Your request has been canceled.",
+           icon: "success"
+         });
+       }
+     });
+
+}
+  catch(err){
+   console.log(err)
+  }
+}
 
 
     return (
@@ -75,16 +107,14 @@ const {user}=useContext(AuthContext)
           </div>
         </td>
         <th>
-          <button className="btn btn-ghost btn-xs"><FcRemoveImage className="text-2xl text-red-400" /></button>
+          <button onClick={()=>handleDelete(post._id)} className="btn btn-ghost btn-xs"><FcRemoveImage className="text-2xl text-red-400" /></button>
         </th>
       </tr>)}
-     
-    
-      
     </tbody>
    
   </table>
 </div>
+{myRequest.length==0 &&<p className="text-2xl text-red-500 font-bold mt-9 mb-80">You don't have any post requests.....</p>}
         </div>
     );
 };

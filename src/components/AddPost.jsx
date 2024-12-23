@@ -79,7 +79,7 @@ catch(err){
                                 <span className="label-text text-lg text-green-600 font-bold">Category </span>
                             </label>
                             <select className="py-3 rounded-lg border border-gray-300 text-gray-600" name="category" id="">
-                                <option value="Select category">Select category</option>
+                                <option value="">Select category</option>
                                 <option value="healthcare">healthcare</option>
                                 <option value="education">education</option>
                                 <option value="social service">social service</option>

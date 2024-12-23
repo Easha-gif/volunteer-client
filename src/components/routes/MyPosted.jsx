@@ -53,8 +53,8 @@ const handleDelete = async(id)=>{
 
     return (
         <div>
-            <h1 className="text-3xl text-black font-bold mt-5 mb-9">My Posts : {myPost.length}</h1>
-          <div className="overflow-x-auto">
+            <h1 className="text-3xl text-black font-bold mt-5 mb-4">My Posts : {myPost.length}</h1>
+          <div className="overflow-x-auto mb-60">
   <table className="table">
     {/* head */}
     <thead>
@@ -117,6 +117,7 @@ const handleDelete = async(id)=>{
    
   </table>
 </div>
+{myPost.length==0 &&<p className="text-2xl text-red-500 font-bold mt-9 mb-80">You don't have any posts.....</p>}
         </div>
     );
 };

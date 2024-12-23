@@ -7,22 +7,29 @@ import { Link } from "react-router-dom";
 const AllPosts = () => {
 
     const [sortPost , setSortPost] =useState([])
+    const [search , setSearch] =useState("")
 
 
 useEffect(()=>{
   
 const handlePostSortData =async ()=>{
-  const {data} = await axios.get(`${import.meta.env.VITE_APIHOST}/sortPost`)
+  const {data} = await axios.get(`${import.meta.env.VITE_APIHOST}/sortPost?search=${search}`)
 
   setSortPost(data)
   }
   handlePostSortData()
-},[])
+},[search])
 
 
     return (
        <div>
-        <h1 className="text-4xl text-gray-600 font-bold my-10 ">All Volunteer Need Posts</h1>
+    <div className="flex flex-col lg:flex-row gap-8 items-center">
+    <div><h1 className="text-4xl text-gray-600 font-bold my-10 ">All Volunteer Need Posts</h1></div>
+        <div className="flex items-center w-1/2">
+                            <input type="text" onBlur={(e)=>setSearch(e.target.value)} placeholder="Search" name="search" className="input input-bordered w-1/2" required />
+                       <button className="text-white text-base  bg-slate-800 px-6 py-3 rounded-lg">Search</button>
+                        </div>
+    </div>
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
          {sortPost.map(post=><div key={post._id} className="bg-blue-100 shadow-lg p-4 rounded-lg mb-2">
     <div>
