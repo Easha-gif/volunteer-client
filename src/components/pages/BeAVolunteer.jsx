@@ -3,12 +3,13 @@ import { useContext, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
+import { compareAsc } from "date-fns";
+import toast from "react-hot-toast";
 
 
 const BeAVolunteer = () => {
 const{user}=useContext(AuthContext)
     const [sortPost , setSortPost] =useState([])
-    const [startDate , setStartDate] = useState(new Date())
     const{id}=useParams()
         useEffect(()=>{
           
@@ -21,37 +22,63 @@ const{user}=useContext(AuthContext)
         },[])
     
        const { photo, title, description, 
-            category, location, need, deadline, userEmail, userName ,userPhoto}=sortPost
+            category, location, need, deadline, userEmail, userName ,_id}=sortPost
+
+
+
+const handleVolunteerData = (e)=>{
+    e.preventDefault()
+
+    const suggestion = e.target.suggestion.value;
+    const status = e.target.status.value;
+    const volunteerEmail = e.target.volunteerEmail.value;
+    const volunteerName = e.target.volunteerName.value;
+
+if(compareAsc(new Date(),new Date(deadline))===1)
+    return toast.error("Deadline crossed ,request not allowed!!")
+
+if(need <0 || need==0)
+    return toast.error("Need people is 0 ,request not allowed!!")
+
+const volunteerInfo ={ title, need,
+        category, location, deadline,requestId:_id, userEmail, userName ,suggestion,status,volunteerName,volunteerEmail}
+        console.log(volunteerInfo)
+
+}
+
+
+
 
     return (
         <div>
-            <p className="text-xl text-red-600 font-bold mt-8">All Filed just for check out only</p>
-             <form>
+            <h1 className="my-10 text-center text-4xl font-bold text-slate-600">Sent a request to be a volunteer</h1>
+            <p className="text-lg text-red-600 font-bold mt-8">Here all the fills are given for checkout only..<br></br> You can't change any field ,except suggestion field</p>
+             <form onSubmit={handleVolunteerData}>
                 
                 <div className="w-11/12 mx-auto px-10 bg-white  mb-40 rounded-md  py-8">
-                    <div className="flex gap-6">
-                        <div className="form-control w-1/2">
+                    <div className="flex flex-col lg:flex-row gap-6">
+                        <div className="form-control lg:w-1/2">
                             <label className="label">
                                 <span className="label-text text-lg text-gray-600 font-bold">Thumbnail </span>
                             </label>
                             <input type="text" placeholder="Enter Photo URL" name="photo" className="input input-bordered" readOnly defaultValue={photo}/>
                         </div>
-                        <div className="form-control w-1/2">
+                        <div className="form-control lg:w-1/2">
                             <label className="label">
                                 <span className="label-text text-lg text-gray-600 font-bold">Title</span>
                             </label>
                             <input type="text" placeholder="Enter Post Title" name="title" className="input input-bordered" readOnly defaultValue={title}/>
                         </div>
-                        <div className="form-control w-1/2">
+                        <div className="form-control lg:w-1/2">
                             <label className="label">
                                 <span className="label-text text-lg text-gray-600 font-bold">Description </span>
                             </label>
                             <input type="text" placeholder="Enter Description " name="description" className="input input-bordered" readOnly defaultValue={description} />
                         </div>
                     </div>
-                    <div className="flex gap-6">
+                    <div className="flex flex-col lg:flex-row gap-6">
                        
-                        <div className="form-control w-1/2">
+                        <div className="form-control lg:w-1/2">
                             <label className="label">
                                 <span className="label-text text-lg text-gray-600 font-bold">Category </span>
                             </label>
@@ -63,13 +90,13 @@ const{user}=useContext(AuthContext)
                                 <option value="animal welfare">animal welfare</option>
                             </select>
                         </div>
-                        <div className="form-control w-1/2">
+                        <div className="form-control lg:w-1/2">
                             <label className="label">
                                 <span className="label-text text-lg text-gray-600 font-bold">Location</span>
                             </label>
                             <input type="text" placeholder="Enter the Location" name="location" className="input input-bordered" readOnly defaultValue={location} />
                         </div>
-                        <div className="form-control w-1/2">
+                        <div className="form-control lg:w-1/2">
                             <label className="label">
                                 <span className="label-text text-lg text-gray-600 font-bold">No. of volunteers needed </span>
                             </label>
@@ -77,8 +104,8 @@ const{user}=useContext(AuthContext)
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-6">
-                        <div className="form-control w-1/2">
+                    <div className="flex flex-col lg:flex-row gap-6">
+                        <div className="form-control lg:w-1/2">
                             <label className="label">
                                 <span className="label-text text-lg text-gray-600 font-bold">Deadline</span>
                             </label>
@@ -86,33 +113,21 @@ const{user}=useContext(AuthContext)
                             className="input input-bordered w-full"
                             selected={deadline} readOnly defaultValue={deadline}/>
                         </div>
-                          <div className="form-control w-1/2">
+                          <div className="form-control lg:w-1/2">
                             <label className="label">
                                 <span className="label-text text-lg text-gray-600 font-bold">Organizer name </span>
                             </label>
                             <input type="text" className="input input-bordered" name="userName" readOnly value={userName} />
                         </div>
-                        <div className="form-control w-1/2">
+                        <div className="form-control lg:w-1/2">
                         <label className="label">
                             <span className="label-text text-lg text-gray-600 font-bold">Organizer email</span>
                         </label>
                         <input type="text" className="input input-bordered" name="userEmail" readOnly value={userEmail} />
                     </div>
-                        {/* <div className="form-control w-1/2">
-                            <label className="label">
-                                <span className="label-text text-lg text-gray-600 font-bold">Organizer name </span>
-                            </label>
-                            <input type="text" className="input input-bordered" name="userName" readOnly value={user?.displayName} />
-                        </div>
-                        <div className="form-control w-1/2">
-                        <label className="label">
-                            <span className="label-text text-lg text-green-600 font-bold">Organizer email</span>
-                        </label>
-                        <input type="text" className="input input-bordered" name="userEmail" readOnly value={user?.email} />
-                    </div> */}
                     </div>
-                    <div className="flex items-center gap-6">
-                    <div className="form-control w-1/2">
+                    <div className="flex flex-col lg:flex-row gap-6">
+                    <div className="form-control lg:w-1/2">
                     <label className="label">
                                 <span className="label-text text-lg text-gray-600 font-bold">status</span>
                             </label>
@@ -124,7 +139,7 @@ const{user}=useContext(AuthContext)
                         </label>
                         <input type="text" className="input input-bordered" name="volunteerEmail" readOnly value={user?.email} />
                     </div>
-                    <div className="form-control w-1/2">
+                    <div className="form-control lg:w-1/2">
                     <label className="label">
                                 <span className="label-text text-lg text-gray-600 font-bold">Volunteer Name </span>
                             </label>
@@ -134,11 +149,11 @@ const{user}=useContext(AuthContext)
                             
                         </div>
                         <p className="text-base text-red-600 font-bold">You provide a Suggestion message</p>
-                        <div className="form-control w-1/2">
+                        <div className="form-control lg:w-1/2">
                     <label className="label">
                                 <span className="label-text text-lg text-gray-600 font-bold">Suggestion</span>
                             </label>
-                            <input type="text" className="input input-bordered" name="Suggestion" readOnly value={"Suggestion"} />
+                            <input type="text" className="input input-bordered" name="suggestion"  defaultValue={"Suggestion"} />
                     </div>
                     <button className="btn btn-block mt-7 bg-red-200 text-red-400 border-2  text-lg">Send Request</button>
                 </div>

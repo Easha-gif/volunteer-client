@@ -15,6 +15,8 @@ import { Toaster } from 'react-hot-toast';
 import AllPosts from './components/pages/AllPosts.jsx';
 import Details from './components/pages/Details.jsx';
 import BeAVolunteer from './components/pages/BeAVolunteer.jsx';
+import MyPosted from './components/routes/MyPosted.jsx';
+import Private from './components/pages/Private.jsx';
 
 
 const router = createBrowserRouter([
@@ -37,7 +39,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/addPost',
-        element:<AddPost></AddPost>
+        element:<Private><AddPost></AddPost></Private>
       },
       {
         path:'/allPosts',
@@ -46,12 +48,16 @@ const router = createBrowserRouter([
       },
       {
         path:'/sortPost/:id',
-        element:<Details></Details>,
+        element:<Private><Details></Details></Private>,
       },
       {
         path:'/beVolunteer/:id',
-        element:<BeAVolunteer></BeAVolunteer>
+        element:<Private><BeAVolunteer></BeAVolunteer></Private>
       },
+      {
+        path:"/myPosts",
+        element:<Private><MyPosted></MyPosted></Private>
+      }
     ]
   },
 ]);

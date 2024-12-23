@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged,
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase.init";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 export const AuthContext = createContext(null)
 const AuthProvider = ({children}) => {
@@ -29,19 +30,10 @@ const handleSignIn = (email,password) =>{
 
 
 const handleSignOut = () =>{
-    signOut(auth)
-    .then((result)=>{
+ return signOut(auth)
+
+}
     
-       Swal.fire({
-            title: 'Logout!',
-            text: 'you are Log-out in this site',
-            icon: 'error',
-            confirmButtonText: 'okay'
-          })
-          
-    })
-    .catch(error=>console.log(error))
-    }
 
 
 const updateUserProfile = (name , photo) =>{

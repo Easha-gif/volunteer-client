@@ -1,10 +1,26 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png"
 import { useContext, useState } from "react";
 import { AuthContext } from "./AuthProvider";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const {user,handleSignOut}=useContext(AuthContext)
+  const navigate = useNavigate()
+const handleSignOutCall=()=>{
+  handleSignOut()
+  .then((result)=>{
+    Swal.fire({
+         title: 'Logout!',
+         text: 'you are Log-out in this site',
+         icon: 'error',
+         confirmButtonText: 'okay'
+       })
+       navigate("/")
+ })
+ .catch(error=>toast.error("something wrong"))
+}
 
 
   return (
@@ -47,15 +63,15 @@ const Navbar = () => {
   <div tabIndex={0} role="button" className="m-1 text-green-800 text-lg font-bold">My Profile</div>
   <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-50 w-60 p-4 shadow">
   <Link to="/addPost" className="text-sm text-black font-bold my-4 btn">Add Volunteer Post</Link>
-  <Link className="text-sm text-black font-bold btn">Manage My Posts</Link>
-  <button onClick={handleSignOut}  className="text-sm text-black font-bold btn my-4">Log-Out</button>
+  <Link to="/myPosts" className="text-sm text-black font-bold btn">Manage My Posts</Link>
+  <button onClick={handleSignOutCall}  className="text-sm text-black font-bold btn my-4">Log-Out</button>
   </ul>
 </div>
 <div className="dropdown dropdown-hover">
   <div tabIndex={0} role="button" className="m-1"><img title={`${user?.displayName} ${user?.email}`} className="w-12 h-12 object-cover rounded-full border-2 border-green-200 hover:border-green-400" src={user?.photoURL} alt="" /></div>
   <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-50 w-36 p-2 -ml-10 shadow">
     <li className="text-base text-green-600 font-bold">{user?.displayName}</li>
-    <li><button onClick={handleSignOut}  className="text-base text-red-600 font-bold">Log-Out</button></li>
+    <li><button onClick={handleSignOutCall}  className="text-base text-red-600 font-bold">Log-Out</button></li>
   </ul>
 </div>
 
