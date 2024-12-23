@@ -6,6 +6,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 const AddPost = () => {
 
 const{user}=useContext(AuthContext)
@@ -47,6 +48,8 @@ catch(err){
 
     return (
         <div>
+<Helmet title="Volunteer | Add post"></Helmet>
+
 <div>
     <h1 className="text-4xl text-center mt-8 mb-4 font-extrabold text-slate-700">Add Volunteer need post</h1>
     <p className="text-base text-slate-500 text-center mb-10">if you need volunteers add a post.</p>

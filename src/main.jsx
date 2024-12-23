@@ -19,13 +19,14 @@ import MyPosted from './components/routes/MyPosted.jsx';
 import Private from './components/pages/Private.jsx';
 import Update from './components/routes/Update.jsx';
 import MyPostRequest from './components/routes/MyPostRequest.jsx';
+import ErrorPage from './components/routes/ErrorPage.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
-    errorElement:<p>error...</p>,
+    errorElement:<ErrorPage></ErrorPage>,
     children:[
       {
         path:'/',

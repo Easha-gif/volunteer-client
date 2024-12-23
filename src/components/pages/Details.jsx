@@ -1,12 +1,14 @@
 import axios from "axios";
 import { format } from "date-fns";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-
+import { Helmet } from "react-helmet";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import { FaLocationDot } from "react-icons/fa6";
+import toast from "react-hot-toast";
 
 const Details = () => {
     const [sortPost , setSortPost] =useState([])
-
+const navigate = useNavigate()
 const{id}=useParams()
     useEffect(()=>{
       
@@ -18,9 +20,20 @@ const{id}=useParams()
       handlePostSortData()
     },[])
 
+const handleVolunteer=(_id)=>{
+  if(need<0 || need==0){
+   return toast.error("Need people are joined...request failed")
+  }
+navigate(`/beVolunteer/${_id}`)
+}
+
+
+
    const { photo, title, description, 
         category, location, need, deadline, userEmail,_id, userName ,userPhoto}=sortPost
     return (
+     <div>
+       <Helmet title="Volunteer | Details"></Helmet>
         <div
         className="hero min-h-screen rounded-2xl"
         style={{
@@ -56,9 +69,9 @@ const{id}=useParams()
             </div>
 
     
-{sortPost.deadline&&   <p className="text-white font-bold text-lg ">Deadline :  {format(new Date(deadline) ,'P')}</p>}
-         <p className="text-white font-bold text-lg">
-            <span  className="text-white font-bold text-lg">Location : </span>  {location}
+{sortPost.deadline&&   <p className="text-white font-bold text-lg mt-2">Deadline :  {format(new Date(deadline) ,'P')}</p>}
+         <p className="text-white flex items-center justify-center gap-2 font-bold text-lg">
+            <span  className="text-white font-bold text-lg">Location : </span><span><FaLocationDot /></span>   {location}
             </p>
 
 
@@ -70,11 +83,13 @@ const{id}=useParams()
             </p>
         </div>
 
+        <button onClick={()=>handleVolunteer(_id)} className="btn mt-5">Be a Volunteer</button>
 
-            <Link to={`/beVolunteer/${_id}`} className="btn mt-5">Be a Volunteer</Link>
           </div>
         </div>
       </div>
+     </div>
+
     );
 };
 

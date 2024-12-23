@@ -6,6 +6,8 @@ import { FiEdit } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
+import { FaLocationDot } from "react-icons/fa6";
 const MyPosted = () => {
     const {user}=useContext(AuthContext)
 
@@ -53,6 +55,7 @@ const handleDelete = async(id)=>{
 
     return (
         <div>
+          <Helmet title="My Post"></Helmet>
             <h1 className="text-3xl text-black font-bold mt-5 mb-4">My Posts : {myPost.length}</h1>
           <div className="overflow-x-auto mb-60">
   <table className="table">
@@ -88,7 +91,7 @@ const handleDelete = async(id)=>{
             </div>
             <div>
               <div className="font-bold">{post.title}</div>
-              <div className="text-sm opacity-50">{post.location}</div>
+              <div className="text-sm opacity-50 flex items-center gap-2"><span><FaLocationDot /></span>{post.location}</div>
             </div>
           </div>
         </td>

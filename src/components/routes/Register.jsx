@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../pages/AuthProvider";
+import { Helmet } from "react-helmet";
+import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
 
@@ -86,12 +88,15 @@ const handleLoginFrom = (e) =>{
 
   
     return (
+      <div>
+        <Helmet title="Volunteer | Register page"></Helmet>
+        <h1 className="text-3xl text-gray-700 font-bold mt-8">Register</h1>
         <div className="py-9">
 
         <div className="hero-content flex-col  lg:flex-row gap-10">
-          <div className="card bg-base-100 shadow-xl w-full max-w-sm border-2 border-green-200">
+          <div className="card bg-base-100 shadow-xl w-full max-w-sm border-2">
           <div>
-    <button onClick={handleGoogle} className="w-full">  <p className="text-green-900 w-full py-4 font-bold text-lg bg-green-300 rounded-xl hover:rounded-2xl p-2 border-2 border-green-500  text-center">Login With Google</p></button>
+    <button onClick={handleGoogle} className="w-full">  <p className="text-red-900/70 w-full py-4 font-bold text-lg bg-red-300/50 rounded-xl hover:rounded-2xl p-2 border-2 border-red-500/80  text-center flex items-center gap-4 justify-center"><span><FcGoogle className="text-4xl"/></span>Login With Google</p></button>
     </div>
             <form onSubmit={handleLoginFrom} className="card-body">
             <div className="form-control">
@@ -122,7 +127,7 @@ const handleLoginFrom = (e) =>{
                 <button className="btn btn-block bg-gray-400 text-xl text-gray-950 font-bold">Register</button>
               </div>
             </form>
-            <p className="text-lg font-bold text-gray-800 p-2">Already have an account !! please <span className="text-red-500"><Link to='/login'>Login</Link></span></p>
+            <p className="text-lg font-bold text-gray-800 p-2">Already have an account !! please <span className="text-red-500 underline"><Link to='/login'>Login</Link></span></p>
           </div>
         
         <div>
@@ -130,6 +135,7 @@ const handleLoginFrom = (e) =>{
            </div>
            </div>
       </div> 
+      </div>
     );
 };
 

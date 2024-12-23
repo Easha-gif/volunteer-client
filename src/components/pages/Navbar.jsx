@@ -76,7 +76,7 @@ const handleSignOutCall=()=>{
   </ul>
 </div>
 
-</div>:<Link to='/login' className="btn bg-green-600 text-white font-bold text-lg">Login</Link>}
+</div>:<div><Link to='/login' className="btn bg-green-600 text-white font-bold text-lg">Login</Link><Link to='/register' className=" text-green-700 underline text-sm font-semibold ml-3">Register</Link></div>}
   </div>
 </div>
 </div>

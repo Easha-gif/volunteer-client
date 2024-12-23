@@ -4,6 +4,9 @@ import axios from "axios";
 import { format } from "date-fns";
 import { FcRemoveImage } from "react-icons/fc";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
+import { FaLocationDot } from "react-icons/fa6";
+import { GoDotFill } from "react-icons/go";
 
 
 const MyPostRequest = () => {
@@ -55,6 +58,7 @@ const handleDelete = async(id)=>{
 
     return (
         <div>
+          <Helmet title="My post request"></Helmet>
           <div className="overflow-x-auto">
   <table className="table">
     {/* head */}
@@ -68,6 +72,7 @@ const handleDelete = async(id)=>{
         <th className="text-base">Title</th>
         <th className="text-base">Category ,Deadline</th>
         <th className="text-base">Organizer</th>
+        <th className="text-base">Status</th>
         <th className="text-base">Action</th>
       </tr>
     </thead>
@@ -82,7 +87,7 @@ const handleDelete = async(id)=>{
           <div className="flex items-center gap-3">
             <div>
               <div className="font-bold">{post.title}</div>
-              <div className="text-sm opacity-50">{post.location}</div>
+              <div className="text-sm opacity-50 flex items-center gap-1"><span><FaLocationDot /></span>{post.location}</div>
             </div>
           </div>
         </td>
@@ -106,6 +111,7 @@ const handleDelete = async(id)=>{
             </div>
           </div>
         </td>
+        <td><p className="bg-red-200/60 rounded-2xl text-red-500/60 w-fit p-1 flex items-center"><span><GoDotFill /></span>{post.status}...</p></td>
         <th>
           <button onClick={()=>handleDelete(post._id)} className="btn btn-ghost btn-xs"><FcRemoveImage className="text-2xl text-red-400" /></button>
         </th>

@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import { compareAsc } from "date-fns";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 
 const BeAVolunteer = () => {
@@ -45,7 +46,7 @@ const navigate =useNavigate()
             title,
             category, location, deadline, requestId: _id, userEmail, userName, suggestion, status, volunteerName, volunteerEmail
         }
-        console.log(volunteerInfo)
+
 
         try {
             await axios.post(`${import.meta.env.VITE_APIHOST}/addBid`, volunteerInfo)
@@ -61,6 +62,7 @@ const navigate =useNavigate()
 
     return (
         <div>
+              <Helmet title="Volunteer | Be a Volunteer"></Helmet>
             <h1 className="my-10 text-center text-4xl font-bold text-slate-600">Sent a request to be a volunteer</h1>
             <p className="text-lg text-red-600 font-bold mt-8">Here all the fills are given for check only..<br></br> You can't change any field ,except suggestion field</p>
             <form onSubmit={handleVolunteerData}>

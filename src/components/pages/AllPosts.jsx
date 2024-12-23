@@ -1,6 +1,7 @@
 import axios from "axios";
 import { format } from "date-fns";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 
@@ -23,6 +24,7 @@ const handlePostSortData =async ()=>{
 
     return (
        <div>
+        <Helmet title="Volunteer | All Posts"></Helmet>
     <div className="flex flex-col lg:flex-row gap-8 items-center">
     <div><h1 className="text-4xl text-gray-600 font-bold my-10 ">All Volunteer Need Posts</h1></div>
         <div className="flex items-center w-1/2">
