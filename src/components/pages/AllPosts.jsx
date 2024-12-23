@@ -35,12 +35,12 @@ const handlePostSortData =async ()=>{
     </div>
     <div>
       <p className={`
-       ${post.category==="healthcare"&&"bg-blue-200 rounded-2xl text-blue-600 font-bold text-center text-sm w-fit p-2 my-3"}
-       ${post.category==="education"&&"bg-red-300 rounded-2xl text-red-600 font-bold text-center text-sm w-fit p-2 my-3"}
-       ${post.category==="social service"&&"bg-green-200 rounded-2xl text-green-400 font-bold text-center text-sm w-fit p-2 my-3"}
-       ${post.category==="animal welfare"&&"bg-yellow-200 rounded-2xl text-yellow-600 font-bold text-sm text-center w-fit p-2 my-3"}
+       ${post.category==="healthcare"&&"bg-blue-200/60 rounded-2xl text-blue-600/60 font-bold text-center text-sm w-fit p-2 my-3"}
+       ${post.category==="education"&&"bg-red-300/60 rounded-2xl text-red-600/60 font-bold text-center text-sm w-fit p-2 my-3"}
+       ${post.category==="social service"&&"bg-green-200/60 rounded-2xl text-green-600/60 font-bold text-center text-sm w-fit p-2 my-3"}
+       ${post.category==="animal welfare"&&"bg-yellow-200/60 rounded-2xl text-yellow-600/60 font-bold text-sm text-center w-fit p-2 my-3"}
        `}>{post.category}</p>
-       
+      <p className="text-gray-800">Need people : {post.need}</p>
       <Link to={`/sortPost/${post._id}`} className="text-xl text-black font-bold btn mt-6 w-40">View Details</Link>
     </div>
   </div>

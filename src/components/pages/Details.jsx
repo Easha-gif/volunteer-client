@@ -31,7 +31,7 @@ const{id}=useParams()
           <div className="max-w-md">
 
 <div className="flex items-center -mt-10 mb-5">
-    <img className="w-16 h-16 rounded-full" src={userPhoto} alt="" />
+    <img referrerPolicy="no-referrer" className="w-16 h-16 rounded-full" src={userPhoto} alt="" />
 <div>
 <h1 className="font-bold"><span className="text-white font-bold text-lg">Organizer name : </span>  {userName}</h1>
             <p>

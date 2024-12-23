@@ -5,7 +5,6 @@ import { format } from "date-fns";
 import { FiEdit } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { MdDeleteForever } from "react-icons/md";
-import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 const MyPosted = () => {
     const {user}=useContext(AuthContext)
@@ -95,10 +94,10 @@ const handleDelete = async(id)=>{
         </td>
         <td>
         <p className={`
-       ${post.category==="healthcare"&&"bg-blue-200 rounded-2xl text-blue-600 font-bold text-center text-sm w-fit px-1"}
-       ${post.category==="education"&&"bg-red-300 rounded-2xl text-red-600 font-bold text-center text-sm w-fit px-1"}
-       ${post.category==="social service"&&"bg-green-200 rounded-2xl text-green-400 font-bold text-center text-sm w-fit px-1"}
-       ${post.category==="animal welfare"&&"bg-yellow-200 rounded-2xl text-yellow-600 font-bold text-sm text-center w-fit px-1"}
+       ${post.category==="healthcare"&&"bg-blue-200/60 rounded-2xl text-blue-600 font-bold text-center text-sm w-fit px-1"}
+       ${post.category==="education"&&"bg-red-300/60 rounded-2xl text-red-600 font-bold text-center text-sm w-fit px-1"}
+       ${post.category==="social service"&&"bg-green-200/60 rounded-2xl text-green-400 font-bold text-center text-sm w-fit px-1"}
+       ${post.category==="animal welfare"&&"bg-yellow-200/60 rounded-2xl text-yellow-600 font-bold text-sm text-center w-fit px-1"}
        `}>
               {post.category}
             </p>
@@ -107,7 +106,7 @@ const handleDelete = async(id)=>{
         </td>
         <td>{post.need}</td>
         <th className="flex items-center gap-2">
-            <Link> <FiEdit className="text-xl"/></Link>
+            <Link to={`/update/${post._id}`}> <FiEdit className="text-xl"/></Link>
           <button onClick={()=>handleDelete(post._id)} className="btn btn-ghost btn-xs"><MdDeleteForever className="text-2xl text-red-600" /></button>
         </th>
       </tr>)}

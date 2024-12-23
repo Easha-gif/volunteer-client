@@ -64,6 +64,7 @@ const handleSignOutCall=()=>{
   <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-50 w-60 p-4 shadow">
   <Link to="/addPost" className="text-sm text-black font-bold my-4 btn">Add Volunteer Post</Link>
   <Link to="/myPosts" className="text-sm text-black font-bold btn">Manage My Posts</Link>
+  <Link to="/myPostRequest" className="text-sm text-black font-bold btn">My Post requests</Link>
   <button onClick={handleSignOutCall}  className="text-sm text-black font-bold btn my-4">Log-Out</button>
   </ul>
 </div>

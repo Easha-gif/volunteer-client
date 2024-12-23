@@ -17,6 +17,8 @@ import Details from './components/pages/Details.jsx';
 import BeAVolunteer from './components/pages/BeAVolunteer.jsx';
 import MyPosted from './components/routes/MyPosted.jsx';
 import Private from './components/pages/Private.jsx';
+import Update from './components/routes/Update.jsx';
+import MyPostRequest from './components/routes/MyPostRequest.jsx';
 
 
 const router = createBrowserRouter([
@@ -57,6 +59,14 @@ const router = createBrowserRouter([
       {
         path:"/myPosts",
         element:<Private><MyPosted></MyPosted></Private>
+      },
+      {
+        path:"/update/:id",
+        element:<Private><Update></Update></Private>
+      },
+      {
+        path:"/myPostRequest",
+        element:<Private><MyPostRequest></MyPostRequest></Private>
       }
     ]
   },

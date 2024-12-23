@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-
+import Swal from "sweetalert2";
 const AddPost = () => {
 
 const{user}=useContext(AuthContext)
@@ -19,7 +19,7 @@ const navigate = useNavigate()
         const description = e.target.description.value;
         const category = e.target.category.value;
         const location = e.target.location.value;
-        const need = e.target.no.value;
+        const need = parseFloat(e.target.no.value);
         const deadline = startDate;
         const userEmail = e.target.userEmail.value;
         const userName = e.target.userName.value;
@@ -30,7 +30,13 @@ const navigate = useNavigate()
 
 try{
     await axios.post(`${import.meta.env.VITE_APIHOST}/addPost`,addInfo)
-    toast.success("post successfully added")
+    Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Your post has been saved",
+        showConfirmButton: false,
+        timer: 1500
+      });
     navigate("/myPosts")
 }
 catch(err){
@@ -93,7 +99,7 @@ catch(err){
                             <label className="label">
                                 <span className="label-text text-lg text-green-600 font-bold">No. of volunteers needed </span>
                             </label>
-                            <input type="number" placeholder="Enter No. of volunteers needed " name="no" className="input input-bordered" required />
+                            <input type="text" placeholder="Enter No. of volunteers needed " name="no" className="input input-bordered" required />
                         </div>
                     </div>
                     <div className="flex flex-col lg:flex-row gap-6">
