@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import img2 from '../../assets/alt1.jpg'
+import img2 from '../../assets/middle2.jpg'
 import img1 from '../../assets/save.avif'
 import img3 from '../../assets/alt3.jpg'
 import img4 from '../../assets/img-4.jpg'

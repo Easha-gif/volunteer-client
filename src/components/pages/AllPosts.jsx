@@ -55,7 +55,7 @@ const handleCardLayout = ()=>{
     <div>
       <img className="w-full h-56 mb-4 rounded-md border-2 object-cover hover:border-2 hover:border-gray-500" src={post.photo} alt="" />
     <div>
-    <h1 className="text-2xl text-gray-600 font-bold">{post.title}</h1>
+    <h1 className="text-2xl text-gray-600 font-bold mt-2 mb-2">{post.title}</h1>
     <p className="text-base text-gray-500 font-bold ">Deadline :  {format(new Date(post.deadline) ,'P')}</p>
     <p className="text-sm text-gray-400">{post.description.substring(0,70)}...</p>
     </div>
