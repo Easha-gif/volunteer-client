@@ -8,10 +8,14 @@ import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
 import { FaLocationDot } from "react-icons/fa6";
+import { TfiLayoutGrid4 } from "react-icons/tfi";
+import { HiMiniBars4 } from "react-icons/hi2";
+
 const MyPosted = () => {
     const {user}=useContext(AuthContext)
 
 const [myPost, setMyPost] =useState([])
+const [layout, setLayout] =useState(true)
     useEffect(()=>{
           handlePostSortData()
         },[user.email])
@@ -52,12 +56,24 @@ const handleDelete = async(id)=>{
    }
 }
 
+const handleTableLayout = ()=>{
+  setLayout(true)
+}
+const handleCardLayout = ()=>{
+  setLayout(false)
+}
+
 
     return (
         <div>
           <Helmet title="My Post"></Helmet>
-            <h1 className="text-3xl text-black font-bold mt-5 mb-4">My Posts : {myPost.length}</h1>
-          <div className="overflow-x-auto mb-60">
+          <div className="flex justify-between items-center bg-white p-4 shadow-xl rounded-xl mb-7"> <h1 className="text-3xl text-black font-bold">My Posts : {myPost.length}</h1>
+          <div><button onClick={handleCardLayout}><TfiLayoutGrid4 className={`${layout?"text-3xl text-gray-900 mr-3":"text-3xl text-blue-600 mr-3"}`}/></button>
+          <button onClick={handleTableLayout}><HiMiniBars4 className={`${layout?"text-3xl text-blue-600":"text-3xl text-gray-900"}`}/></button>
+          </div>
+          </div>
+           
+     {layout&&     <div className="overflow-x-auto mb-60">
   <table className="table">
     {/* head */}
     <thead>
@@ -119,7 +135,34 @@ const handleDelete = async(id)=>{
     </tbody>
    
   </table>
+</div>}
+
+{layout|| <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+  {myPost.map(post=><div className="border-2 p-4 rounded-md" key={post._id}>
+ <div className="flex justify-between">
+ <img className="w-16 h-16 rounded-3xl object-cover" src={post.photo} alt="" />
+ <div>
+ <p className={`
+       ${post.category==="healthcare"&&"bg-blue-200/60 rounded-2xl text-blue-600 font-bold text-center text-sm w-fit px-2"}
+       ${post.category==="education"&&"bg-red-300/60 rounded-2xl text-red-600 font-bold text-center text-sm w-fit px-2"}
+       ${post.category==="social service"&&"bg-green-200/60 rounded-2xl text-green-400 font-bold text-center text-sm w-fit px-2"}
+       ${post.category==="animal welfare"&&"bg-yellow-200/60 rounded-2xl text-yellow-600 font-bold text-sm text-center w-fit px-2"}
+       `}> {post.category}</p>
+ </div>
+ </div>
+    <h1 className="text-2xl text-gray-700 font-bold mt-3">{post.title}</h1>
+<p className="text-sm text-gray-400 font-bold mt-2 flex items-center gap-2"><span><FaLocationDot /></span> {post.location}</p>
+ <p className="text-sm text-gray-800">Deadline :  {format(new Date(post.deadline) ,'P')}</p>
+ <div className="flex items-center justify-end gap-2 mt-2">
+ <Link to={`/update/${post._id}`}> <FiEdit className="text-2xl"/></Link>
+ <button onClick={()=>handleDelete(post._id)}><MdDeleteForever className="text-3xl text-red-600" /></button>
+ </div>
+  </div>)}
 </div>
+
+}
+
+
 {myPost.length==0 &&<p className="text-2xl text-red-500 font-bold mt-9 mb-80">You don't have any posts.....</p>}
         </div>
     );

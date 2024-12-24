@@ -9,7 +9,6 @@ const AuthProvider = ({children}) => {
     const provider = new GoogleAuthProvider();
     const [user , setUser] = useState(null)
     const [loading , setLoading] = useState(true)
-
 // google signIn
 const handleGoogleSignIn = () =>{
     setLoading(true)
@@ -80,7 +79,8 @@ handleSignUp,
 handleSignIn,
 updateUserProfile ,
 handleSignOut,
-setUser
+setUser,
+
 }
 
 

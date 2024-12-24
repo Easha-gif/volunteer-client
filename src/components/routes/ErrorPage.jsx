@@ -1,8 +1,9 @@
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
     return (
-        <div>
+        <div><Helmet title="Error"></Helmet>
           <div className="flex justify-center mt-6">
           <Link className=" text-red-400 bg-red-300 p-4 rounded-2xl btn" to='/'>Go Back</Link>
           </div>
