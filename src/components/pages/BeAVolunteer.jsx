@@ -9,7 +9,7 @@ import { Helmet } from "react-helmet";
 
 
 const BeAVolunteer = () => {
-    const { user } = useContext(AuthContext)
+    const { user ,theme} = useContext(AuthContext)
     const [sortPost, setSortPost] = useState([])
     const { id } = useParams()
 const navigate =useNavigate()
@@ -63,8 +63,8 @@ const navigate =useNavigate()
     return (
         <div>
               <Helmet title="Volunteer | Be a Volunteer"></Helmet>
-            <h1 className="my-10 text-center text-4xl font-bold text-slate-600">Sent a request to be a volunteer</h1>
-            <p className="text-lg text-red-600 font-bold mt-8">Here all the fills are given for check only..<br></br> You can't change any field ,except suggestion field</p>
+            <h1 className={`${theme?"text-white text-4xl font-bold pt-10 text-center":"text-4xl text-center text-gray-900 font-bold pt-10"}`}>Sent a request to be a volunteer</h1>
+            <p className="text-lg text-red-600 font-bold mt-5 mb-4">Here all the fills are given for check only..<br></br> You can't change any field ,except suggestion field</p>
             <form onSubmit={handleVolunteerData}>
 
                 <div className="w-11/12 mx-auto px-10 bg-white  mb-40 rounded-md  py-8">

@@ -11,7 +11,7 @@ import { GoDotFill } from "react-icons/go";
 
 const MyPostRequest = () => {
 const [myRequest, setMyRequest] = useState([])
-const {user}=useContext(AuthContext)
+const {user,theme}=useContext(AuthContext)
 
 useEffect(()=>{
   
@@ -19,7 +19,8 @@ useEffect(()=>{
  },[user.email])
         
 const handlePostSortData =async ()=>{
-const {data} = await axios.get(`${import.meta.env.VITE_APIHOST}/addBid/${user?.email}`)
+const {data} = await axios.get(`${import.meta.env.VITE_APIHOST}/addBid/${user?.email}`,{withCredentials:true})
+
 
 setMyRequest(data)
  }
@@ -59,11 +60,12 @@ const handleDelete = async(id)=>{
     return (
         <div>
           <Helmet title="My post request"></Helmet>
-          <div className="overflow-x-auto">
+          <h1  className={`${theme?"text-white text-4xl font-bold pt-10":"text-4xl text-gray-900 font-bold pt-10"}`}>My Posted Requests</h1>
+          <div className="overflow-x-auto mt-6 rounded-xl">
   <table className="table">
     {/* head */}
     <thead>
-      <tr className=" border-2">
+      <tr className=" border-2 bg-white">
         <th>
           <label>
             <input type="checkbox" className="checkbox" />
@@ -77,7 +79,7 @@ const handleDelete = async(id)=>{
       </tr>
     </thead>
     <tbody>
-     {myRequest.map(post=> <tr  key={post._id} className="border border-green-300 rounded-xl">
+     {myRequest.map(post=> <tr  key={post._id} className="border bg-white border-green-300 rounded-xl">
         <th>
           <label>
             <input type="checkbox" className="checkbox" />

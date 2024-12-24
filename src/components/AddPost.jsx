@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
 const AddPost = () => {
 
-const{user}=useContext(AuthContext)
+const{user,theme}=useContext(AuthContext)
 const [startDate , setStartDate] = useState(new Date())
 const navigate = useNavigate()
     const handleAddPostForm =async (e) => {
@@ -51,7 +51,7 @@ catch(err){
 <Helmet title="Volunteer | Add post"></Helmet>
 
 <div>
-    <h1 className="text-4xl text-center mt-8 mb-4 font-extrabold text-slate-700">Add Volunteer need post</h1>
+    <h1 className={`${theme?"text-white text-4xl font-bold text-center mt-6 mb-4":"text-4xl text-gray-900 text-center font-bold mt-6 mb-4"}`}>Add Volunteer need post</h1>
     <p className="text-base text-slate-500 text-center mb-10">if you need volunteers add a post.</p>
 </div>
             <form onSubmit={handleAddPostForm}>

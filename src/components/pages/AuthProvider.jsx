@@ -3,12 +3,14 @@ import { createContext, useEffect, useState } from "react";
 import auth from "../firebase.init";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 export const AuthContext = createContext(null)
 const AuthProvider = ({children}) => {
     const provider = new GoogleAuthProvider();
     const [user , setUser] = useState(null)
     const [loading , setLoading] = useState(true)
+    const [theme , setTheme] = useState(false)
 // google signIn
 const handleGoogleSignIn = () =>{
     setLoading(true)
@@ -40,34 +42,55 @@ const updateUserProfile = (name , photo) =>{
         displayName:name,photoURL:photo
     })
     .then(result=>{
-        console.log(result)
+        // console.log(result)
     })
     .catch(error=>console.log(error))
 }
 
 
 
-useEffect(()=>{
-    const unsubscribe = onAuthStateChanged(auth , (currentUser)=>{
-        console.log(currentUser)
-       if(currentUser){ 
+// useEffect(()=>{
+//     const unsubscribe = onAuthStateChanged(auth ,async(currentUser)=>{
+//         console.log(currentUser)
+//        if(currentUser?.email){ 
+//         setUser(currentUser)
+//         const{ data}=await axios.post(`${import.meta.env.VITE_APIHOST}/jwt`,
+//             {email:currentUser?.email})
+//         console.log(data)
+//     }
+
+
+//     setLoading(false)
+//     return ()=>{
+//     unsubscribe()
+//     }
+    
+//     })
+    
+//     },[])
+    
+  useEffect(()=>{
+const unsubscribe =onAuthStateChanged(auth,async currentUser=>{
+    console.log('currently login -->',currentUser)
+    if(currentUser?.email){
         setUser(currentUser)
-        setLoading(false)
+        const {data}= await axios.post(`${import.meta.env.VITE_APIHOST}/jwt`,{
+            email:currentUser?.email
+        },{withCredentials:true})
+        console.log('token', data)
     }
     else{
         setUser(null)
+        const {data}= await axios.get(`${import.meta.env.VITE_APIHOST}/remove`,
+           {withCredentials:true})
+        console.log('token', data)
     }
-    
     setLoading(false)
-    return ()=>{
+})
+return()=>{
     unsubscribe()
-    }
-    
-    })
-    
-    },[])
-    
-    
+}
+  },[])  
 
 
 
@@ -80,7 +103,8 @@ handleSignIn,
 updateUserProfile ,
 handleSignOut,
 setUser,
-
+theme,
+setTheme
 }
 
 

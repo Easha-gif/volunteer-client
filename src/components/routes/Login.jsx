@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet";
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
-const {handleGoogleSignIn ,handleSignIn} = useContext(AuthContext)
+const {handleGoogleSignIn ,handleSignIn,theme} = useContext(AuthContext)
 const navigate = useNavigate()
 const handleLoginFrom = (e) =>{
 e.preventDefault()
@@ -58,7 +58,7 @@ navigate("/")
     return (
     <div>
         <Helmet title="Volunteer | Login page"></Helmet>
-        <h1 className="text-3xl text-gray-900 font-bold mt-8">Login Now</h1>
+        <h1 className={`${theme?"text-white text-4xl font-bold pt-10":"text-4xl text-gray-900 font-bold pt-10"}`}>Login Now</h1>
         <div className="py-16">
 
   <div className="hero-content flex-col lg:flex-row">

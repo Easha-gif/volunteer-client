@@ -9,7 +9,7 @@ import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
 
-const {handleGoogleSignIn ,handleSignUp,updateUserProfile,setUser} = useContext(AuthContext)
+const {handleGoogleSignIn ,handleSignUp,updateUserProfile,setUser,theme} = useContext(AuthContext)
 const navigate = useNavigate()
 const handleGoogle = ()=>{
   handleGoogleSignIn()
@@ -90,7 +90,7 @@ const handleLoginFrom = (e) =>{
     return (
       <div>
         <Helmet title="Volunteer | Register page"></Helmet>
-        <h1 className="text-3xl text-gray-700 font-bold mt-8">Register</h1>
+        <h1 className={`${theme?"text-white text-4xl font-bold pt-10":"text-4xl text-gray-900 font-bold pt-10"}`}>Register</h1>
         <div className="py-9">
 
         <div className="hero-content flex-col  lg:flex-row gap-10">
