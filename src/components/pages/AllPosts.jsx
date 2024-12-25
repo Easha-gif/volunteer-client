@@ -40,10 +40,10 @@ const handleCardLayout = ()=>{
     return (
        <div>
         <Helmet title="Volunteer | All Posts"></Helmet>
-    <div className="flex flex-col lg:flex-row gap-8 items-center">
-    <div><h1 className={`${theme?"text-white text-4xl font-bold py-10":"text-4xl text-gray-900 font-bold py-10"}`}>All Volunteer Need Posts</h1></div>
+    <div className="flex flex-col lg:flex-row gap-8 justify-evenly items-center bg-white shadow-xl p-3 rounded-lg mb-5">
+    <div><h1 className={`${theme?"text-white text-3xl font-bold":"text-3xl text-gray-900 font-bold"}`}>All Volunteer Need Posts</h1></div>
         <div className="flex items-center w-1/2">
-                            <input type="text" onChange={(e)=>setSearch(e.target.value)} placeholder="Search" name="search" className="input input-bordered w-1/2" required />
+                            <input type="text" onChange={(e)=>setSearch(e.target.value)} placeholder="Search" name="search" className="input input-bordered w-1/2"/>
                        <button className="text-white text-base  bg-slate-800 px-6 py-3 rounded-lg">Search</button>
                         </div>
                         <div><button onClick={handleCardLayout}><TfiLayoutGrid4 className={`${layout?"text-3xl text-gray-600 mr-3":"text-3xl text-blue-600 mr-3"}`}/></button>

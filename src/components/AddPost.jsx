@@ -30,7 +30,7 @@ const navigate = useNavigate()
             category, location, need, deadline, userEmail, userName ,userPhoto}
 
 try{
-    await axios.post(`${import.meta.env.VITE_APIHOST}/addPost`,addInfo)
+    await axios.post(`${import.meta.env.VITE_APIHOST}/addPost`,addInfo,{withCredentials:true})
     Swal.fire({
         position: "top-end",
         icon: "success",

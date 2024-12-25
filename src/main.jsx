@@ -46,7 +46,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/allPosts',
-        element:<AllPosts></AllPosts>,
+        element:<Private><AllPosts></AllPosts></Private>,
         
       },
       {

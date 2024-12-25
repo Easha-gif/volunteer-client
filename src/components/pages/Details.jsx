@@ -1,13 +1,15 @@
 import axios from "axios";
 import { format } from "date-fns";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { FaLocationDot } from "react-icons/fa6";
 import toast from "react-hot-toast";
+import { AuthContext } from "./AuthProvider";
 
 const Details = () => {
     const [sortPost , setSortPost] =useState([])
+    const{user}=useContext(AuthContext)
 const navigate = useNavigate()
 const{id}=useParams()
     useEffect(()=>{

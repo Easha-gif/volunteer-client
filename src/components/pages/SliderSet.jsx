@@ -4,7 +4,8 @@ import { useContext, useEffect, useState } from "react";
 import { BsCalendarDate } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
-
+import { motion } from "motion/react"
+import { easeOut } from 'motion';
 
 
 const SliderSet = () => {
@@ -30,7 +31,9 @@ const sortedDta = data.splice(0,6)
           <div className="text-center mt-10 mb-10"><h1 className={`${theme?"text-white text-4xl font-bold py-4":"text-4xl text-gray-700 font-bold py-4"}`}>Volunteer Needs Now Section</h1>
       <p className={`${theme?"text-sm text-gray-300 font-bold":"text-gray-600"}`}>Here the upcoming deadlines to volunteer needs</p></div>
       
-<button className="text-lg font-bold text-red-500 bg-red-300/40 rounded-2xl border px-9 py-4 text-center mb-16 flex gap-5">Upcoming Deadline Posts <span><BsCalendarDate className="text-3xl text-blue-400"/></span></button>
+<motion.button animate={{x:100}}
+transition={{duration:4 ,delay:2,repeat:Infinity ,ease:easeOut}}
+ className="text-lg font-bold text-red-500 bg-red-300/40 rounded-2xl border px-9 py-4 text-center mb-16 flex gap-5">Upcoming Deadline Posts <span><BsCalendarDate className="text-3xl text-blue-400"/></span></motion.button>
 
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 {
