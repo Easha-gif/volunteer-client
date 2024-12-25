@@ -82,7 +82,7 @@ useEffect(()=>{
        }).then(async(result) => {
          if (result.isConfirmed) {
     await axios.delete(`${import.meta.env.VITE_APIHOST}/bidDelete/${id}`)
-     handlePostSortData()
+    handleRequestedData()
            Swal.fire({
              title: "Canceled!",
              text: "Your request has been canceled.",
