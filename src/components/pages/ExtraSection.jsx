@@ -10,7 +10,7 @@ const {theme}=useContext(AuthContext)
 
     return (
        <div>
-         <div className='flex flex-col lg:flex-row justify-between items-center bg-white shadow-xl mt-28 border-4 rounded-lg px-3 py-20'>
+         <div className='flex flex-col lg:flex-row justify-between items-center bg-white shadow-xl border-4 rounded-lg px-3 py-20'>
             <div>
 <motion.h1 animate={{x:50}}
 transition={{duration:2 ,delay:1,repeat:Infinity ,ease:easeOut}}
@@ -26,26 +26,26 @@ transition={{duration:2 ,delay:1,repeat:Infinity ,ease:easeOut}}
                 <motion.img
                 animate={{ x:[ 0, -30, 0] }}
                 transition={{ duration: 15 ,delay:3, repeat:Infinity}}
-                className='w-72 h-48 border-l-8 border-b-8 border-blue-500 rounded-t-[40px]  rounded-br-[40px] object-cover' src={middle1} alt="" />
+                className='w-72 h-48 border-l-8 border-b-8 border-green-300 rounded-t-[40px]  rounded-br-[40px] object-cover' src={middle1} alt="" />
             </div>
 
                <div>
                <motion.img
                animate={{ y:[ 0, -30, 0] }}
                transition={{ duration: 15 ,delay:3, repeat:Infinity}}
-               className='w-72 h-48 border-l-8 border-b-8 border-blue-500 rounded-t-[40px]  rounded-br-[40px] object-cover' src={middle2} alt="" />
+               className='w-72 h-48 border-l-8 border-b-8 border-green-300 rounded-t-[40px]  rounded-br-[40px] object-cover' src={middle2} alt="" />
           
           <motion.img
            animate={{ y:[ 0, 30, 0] }}
            transition={{ duration: 15,delay:3 ,repeat:Infinity}}
-          className='w-72 h-48 border-l-8 border-b-8 border-blue-500 rounded-t-[40px]  rounded-br-[40px] object-cover' src={middle3} alt="" />
+          className='w-72 h-48 border-l-8 border-b-8 border-green-300 rounded-t-[40px]  rounded-br-[40px] object-cover' src={middle3} alt="" />
 
                </div>
             </div>
         </div>
 
 <div>
-    <h1 className={`${theme?"text-white text-4xl font-bold pt-12 mb-16":"text-4xl mb-8 text-gray-900 font-bold pt-10"}`}>FAQS</h1>
+    <h1 className={`${theme?"text-white text-4xl font-bold my-16":"text-4xl text-gray-900 font-bold my-16"}`}>FAQS</h1>
 <div className='flex flex-col lg:flex-row gap-6'>
     {/* 1 */}
   <div className='lg:w-1/2'>

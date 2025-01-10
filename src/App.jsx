@@ -21,7 +21,9 @@ const handleToggleTheme = () =>{
    <div className={`${theme?"bg-black":"bg-white"}`}>
    <div className='w-full lg:w-11/12 mx-auto'>
     <Navbar handleToggleTheme={handleToggleTheme}theme={theme}></Navbar>
-    <Outlet theme={theme}></Outlet>
+   <div className="pt-20">
+   <Outlet></Outlet>
+   </div>
     </div>
      <Footer></Footer>
    </div>

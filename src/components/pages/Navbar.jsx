@@ -24,7 +24,7 @@ const handleSignOutCall=()=>{
 
   return (
     <div>
-      <div className="navbar bg-green-100 p-4 rounded-md">
+      <div className="navbar bg-green-100 p-4 rounded-md fixed z-10 w-11/12 mx-auto bg-opacity-90">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -44,16 +44,28 @@ const handleSignOutCall=()=>{
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        <NavLink className="text-green-700 font-bold text-base mr-5" to='/'>Home</NavLink>
-        <NavLink  className="text-green-700 font-bold text-base"  to='/allPosts'>All posts</NavLink>
+        <NavLink to='/' className="text-green-700 font-bold text-base mr-5">Home</NavLink>
+        <NavLink to='/allPosts' className="text-green-700 font-bold text-base mr-5">All posts</NavLink>
+        {
+          user?.email&&<><NavLink to="/addPost" className="text-green-700 font-bold text-base mr-5">Add Post</NavLink>
+          <NavLink to="/myPosts" className="text-green-700 font-bold text-base mr-5">My Posts</NavLink>
+          <NavLink to="/myPostRequest"  className="text-green-700 font-bold text-base mr-5">My requests</NavLink>
+        </>
+        }
       </ul>
     </div>
     <a className="text-4xl text-green-900 font-extrabold flex items-center "><small><img className="w-10" src={logo} alt="" /></small> Volunteer</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-     <NavLink className="text-green-700 font-bold text-base mr-5" to='/'>Home</NavLink>
-     <NavLink  className="text-green-700 font-bold text-base"  to='/allPosts'>All posts</NavLink>
+    <NavLink to='/' className="text-green-700 font-bold text-base mr-5">Home</NavLink>
+        <NavLink to='/allPosts' className="text-green-700 font-bold text-base mr-5">All posts</NavLink>
+        {
+          user?.email&&<><NavLink to="/addPost" className="text-green-700 font-bold text-base mr-5">Add Post</NavLink>
+          <NavLink to="/myPosts" className="text-green-700 font-bold text-base mr-5">My Posts</NavLink>
+          <NavLink to="/myPostRequest"  className="text-green-700 font-bold text-base mr-5">My requests</NavLink>
+        </>
+        }
     </ul>
   </div>
   <div className="navbar-end flex">

@@ -5,7 +5,7 @@ import { FaInstagramSquare, FaTwitterSquare } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <div className='mt-36'>
+        <div className='mt-28'>
      <footer className="footer bg-base-200 text-base-content p-10">
   <aside>
     <img className='w-28 rounded-full' src={footer} alt="" />
