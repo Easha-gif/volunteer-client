@@ -6,10 +6,10 @@ Here you find volunteer and be a volunteer..
 
 # Features
 
-* Volunteer Opportunities Directory
-* User Registration and Profile Management
-* Search for Opportunities
-* Sign-Up Form
+* Volunteer Opportunities Directory .
+* User Registration and Profile Management .
+* Search for Opportunities .
+* Add post To need volunteers .
 
 # npm package
 * axios

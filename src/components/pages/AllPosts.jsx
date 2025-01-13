@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import { TfiLayoutGrid4 } from "react-icons/tfi";
 import { HiMiniBars4 } from "react-icons/hi2";
-import { FiEdit } from "react-icons/fi";
+import "./slider.css"
 import { FaLocationDot } from "react-icons/fa6";
 
 
@@ -51,7 +51,7 @@ const handleCardLayout = ()=>{
                                   </div>
     </div>
         {layout|| <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
-         {sortPost.map(post=><div key={post._id} className="bg-blue-100 shadow-lg p-4 rounded-lg mb-2">
+         {sortPost.map(post=><div key={post._id} className="bg-blue-100 relative shadow-lg p-4 rounded-lg mb-2 h-[550px]">
     <div>
       <img className="w-full h-56 mb-4 rounded-md border-2 object-cover hover:border-2 hover:border-gray-500" src={post.photo} alt="" />
     <div>
@@ -61,14 +61,16 @@ const handleCardLayout = ()=>{
     </div>
     </div>
     <div>
+      <div className="flex gap-8 items-center setText">
       <p className={`
-       ${post.category==="healthcare"&&"bg-blue-200/60 rounded-2xl text-blue-600/60 font-bold text-center text-sm w-fit p-2 my-3"}
-       ${post.category==="education"&&"bg-red-300/60 rounded-2xl text-red-600/60 font-bold text-center text-sm w-fit p-2 my-3"}
-       ${post.category==="social service"&&"bg-green-200/60 rounded-2xl text-green-600/60 font-bold text-center text-sm w-fit p-2 my-3"}
-       ${post.category==="animal welfare"&&"bg-yellow-200/60 rounded-2xl text-yellow-600/60 font-bold text-sm text-center w-fit p-2 my-3"}
+       ${post.category==="healthcare"&&"bg-blue-200/60 rounded-2xl text-blue-600 font-bold text-center text-sm w-fit p-2 my-3"}
+       ${post.category==="education"&&"bg-red-300/60 rounded-2xl text-red-600 font-bold text-center text-sm w-fit p-2 my-3"}
+       ${post.category==="social service"&&"bg-green-200/60 rounded-2xl text-green-600 font-bold text-center text-sm w-fit p-2 my-3"}
+       ${post.category==="animal welfare"&&"bg-yellow-200/60 rounded-2xl text-yellow-600 font-bold text-sm text-center w-fit p-2 my-3"}
        `}>{post.category}</p>
       <p className="text-gray-800">Need people : {post.need}</p>
-      <Link to={`/sortPost/${post._id}`} className="text-xl text-black font-bold btn mt-6 w-40">View Details</Link>
+      </div>
+      <Link to={`/sortPost/${post._id}`} className="text-xl setBottom2 text-black font-bold btn mt-6 w-40">View Details</Link>
     </div>
   </div>
 

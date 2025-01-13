@@ -19,7 +19,6 @@ transition={{duration:2 ,delay:1,repeat:Infinity ,ease:easeOut}}
  transition={{duration:1.5 , repeat:Infinity}}
  >Volunteers</motion.span> are very <br></br> hardworking</motion.h1>
 <p className='text-sm text-gray-500 font-bold ml-3 mb-3'>Volunteers are very helpful and hardworking .<br></br>They help people ,children,old man .</p>
-<button className='text-white bg-green-400 rounded-xl text-lg font-bold py-2 px-4 border ml-8'>Read More Info</button>
             </div>
             <div className='flex items-center'>
             <div>
