@@ -122,7 +122,7 @@ const handleDelete = async(id)=>{
    
   </table>
 </div>
-{myRequest.length==0 &&<p className="text-2xl text-red-500 font-bold mt-9 mb-80">You don't have any post requests.....</p>}
+{myRequest.length==0 &&<p className="text-2xl text-red-500 font-bold mt-9">You don't have any post requests.....</p>}
         </div>
     );
 };

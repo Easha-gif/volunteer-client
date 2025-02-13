@@ -24,7 +24,7 @@ const handleSignOutCall=()=>{
 
   return (
     <div>
-      <div className="navbar bg-green-100 p-4 rounded-md fixed z-10 w-11/12 mx-auto bg-opacity-90">
+      <div className="navbar bg-green-100 py-3 px-12 rounded-md fixed z-10 bg-opacity-90">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

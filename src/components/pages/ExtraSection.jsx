@@ -147,6 +147,48 @@ transition={{duration:2 ,delay:1,repeat:Infinity ,ease:easeOut}}
 </div>
 </div>
 </div>
+
+<div>
+   <h1 className={`${theme?"text-white text-4xl font-bold my-16":"text-4xl text-gray-900 font-bold my-16"}`}>Reviews</h1>
+
+<div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+  <div className='bg-green-100 p-6 rounded-lg border-2 border-green-300 md:h-[300px] md:w-[400px]'>
+    <h1 className='text-3xl font-bold text-center py-2'>Environmental Cleanup Project</h1>
+    <p className='text-sm text-gray-500 font-semibold'>Volunteering for the cleanup project was an amazing experience! Seeing the direct impact of our work on the environment was so fulfilling. The organizers were incredibly supportive, and the teamwork made the entire process enjoyable. I can't wait to join again!</p>
+  <h5 className='text-lg text-gray-700 text-center font-bold py-2'>— Sarah L., Volunteer</h5>
+  </div>
+  <div className='bg-green-100 p-6 rounded-lg border-2 border-green-300 md:h-[300px] md:w-[400px]'>
+    <h1 className='text-3xl font-bold text-center py-2'>Teaching Underprivileged Children</h1>
+    <p className='text-sm text-gray-500 font-semibold'>Teaching young children was truly life-changing. Their enthusiasm and eagerness to learn inspired me every day. This project not only allowed me to share knowledge but also helped me grow as a person. I highly recommend it to anyone looking to make a difference!</p>
+  <h5 className='text-lg text-gray-700 text-center font-bold py-2'>— James R., Volunteer
+
+</h5>
+  </div>
+  <div className='bg-green-100 p-6 rounded-lg border-2 border-green-300 md:h-[300px] md:w-[400px]'>
+    <h1 className='text-3xl font-bold text-center py-2'>Animal Shelter Volunteering</h1>
+    <p className='text-sm text-gray-500 font-semibold'>Helping at the animal shelter was a heartwarming experience. Taking care of the rescued animals and assisting in adoptions made me feel like I was truly making a difference. The staff was wonderful, and the bond I built with the animals was unforgettable!</p>
+  <h5 className='text-lg text-gray-700 text-center font-bold py-2'>— Emily T., Volunteer</h5>
+  </div>
+  <div className='bg-green-100 p-6 rounded-lg border-2 border-green-300 md:h-[300px] md:w-[400px]'>
+    <h1 className='text-3xl font-bold text-center py-2'>Food Bank Assistance</h1>
+    <p className='text-sm text-gray-500 font-semibold'>This was my first time volunteering at a food bank, and it was an eye-opener. Seeing how many families rely on these services made me appreciate the importance of giving back. The experience was well-organized, and I felt like I contributed to something meaningful.</p>
+  <h5 className='text-lg text-gray-700 text-center font-bold py-2'>— Michael D., Volunteer
+
+</h5>
+  </div>
+  <div className='bg-green-100 p-6 rounded-lg border-2 border-green-300 md:h-[300px] md:w-[400px]'>
+    <h1 className='text-3xl font-bold text-center py-2'>Disaster Relief Volunteering</h1>
+    <p className='text-sm text-gray-500 font-semibold'>I was honored to be part of a disaster relief team. Helping families rebuild their lives after a crisis was both emotional and rewarding. The organization provided great training, and I felt safe and prepared. I would do it again in a heartbeat!</p>
+  <h5 className='text-lg text-gray-700 text-center font-bold py-2'>— Olivia M., Volunteer</h5>
+  </div>
+  <div className='bg-green-100 p-6 rounded-lg border-2 border-green-300 md:h-[300px] md:w-[400px]'>
+    <h1 className='text-3xl font-bold text-center py-2'>Elderly Care Volunteering</h1>
+    <p className='text-sm text-gray-500 font-semibold'>Spending time with the elderly was a beautiful experience. Listening to their life stories and being there for them was something I’ll cherish forever. This project taught me patience, empathy, and the importance of companionship</p>
+  <h5 className='text-lg text-gray-700 text-center font-bold py-2'>— Daniel W., Volunteer</h5>
+  </div>
+</div>
+
+</div>
        </div>
 
 
