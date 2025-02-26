@@ -18,20 +18,17 @@ const AllPosts = () => {
 const {theme}=useContext(AuthContext)
 
 useEffect(()=>{
-  
 const handlePostSortData =async ()=>{
-  const {data} = await axios.get(`${import.meta.env.VITE_APIHOST}/sortPost?search=${search}`)
-
-  setSortPost(data)
-  }
+const {data} = await axios.get(`${import.meta.env.VITE_APIHOST}/sortPost?search=${search}`)
+setSortPost(data)}
   handlePostSortData()
 },[search])
-
+// sort
 const handleSort=async()=>{
   const {data} = await axios.get(`${import.meta.env.VITE_APIHOST}/sort`)
   setSortPost(data)
 }
-
+// layout change
 const handleTableLayout = ()=>{
   setLayout(true)
 }
