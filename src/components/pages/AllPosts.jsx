@@ -14,13 +14,14 @@ const AllPosts = () => {
 
     const [sortPost , setSortPost] =useState([])
     const [search , setSearch] =useState("")
+    const [sort , setSort] =useState('')
     const [layout, setLayout] =useState(false)
 const {theme}=useContext(AuthContext)
 
 useEffect(()=>{
   
 const handlePostSortData =async ()=>{
-  const {data} = await axios.get(`${import.meta.env.VITE_APIHOST}/sortPost?search=${search}`)
+  const {data} = await axios.get(`${import.meta.env.VITE_APIHOST}/sortPost?search=${search}&sort=${sort}`)
 
   setSortPost(data)
   }
@@ -40,11 +41,13 @@ const handleCardLayout = ()=>{
     return (
        <div>
         <Helmet title="Volunteer | All Posts"></Helmet>
-    <div className="flex flex-col lg:flex-row gap-8 justify-evenly items-center bg-white shadow-xl p-3 rounded-lg mb-5">
+    <div className="flex flex-col lg:flex-row justify-around items-center bg-white shadow-xl p-3 rounded-lg mb-5">
     <div><h1 className={`${theme?"text-black text-3xl font-bold":"text-3xl text-gray-900 font-bold"}`}>All Volunteer Need Posts</h1></div>
-        <div className="flex items-center w-1/2">
-                            <input type="text" onChange={(e)=>setSearch(e.target.value)} placeholder="Search" name="search" className="input input-bordered w-1/2"/>
-                       <button className="text-white text-base  bg-slate-800 px-6 py-3 rounded-lg">Search</button>
+        <div className="flex items-center">
+                            <input type="text" onChange={(e)=>setSearch(e.target.value)} placeholder="Search" name="search" className="input input-bordered"/>
+                        </div>
+                        <div>
+                          <button onClick={setSort("true")} className="btn bg-slate-400">Sort By Deadline</button>
                         </div>
                         <div><button onClick={handleCardLayout}><TfiLayoutGrid4 className={`${layout?"text-3xl text-gray-600 mr-3":"text-3xl text-blue-600 mr-3"}`}/></button>
                                   <button onClick={handleTableLayout}><HiMiniBars4 className={`${layout?"text-3xl text-blue-600":"text-3xl text-gray-600"}`}/></button>
