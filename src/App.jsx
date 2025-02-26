@@ -18,6 +18,7 @@ const handleToggleTheme = () =>{
 
   return (
     <>
+    {/* all routes */}
    <div className={`${theme?"bg-black":"bg-white"}`}>
     <Navbar handleToggleTheme={handleToggleTheme}theme={theme}></Navbar>
    <div className="pt-20 min-h-screen">
