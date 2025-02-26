@@ -20,7 +20,6 @@ const handleToggleTheme = () =>{
     <>
    <div className={`${theme?"bg-black":"bg-white"}`}>
     <Navbar handleToggleTheme={handleToggleTheme}theme={theme}></Navbar>
-  
    <div className="pt-20 min-h-screen">
    <Outlet></Outlet>
    </div>

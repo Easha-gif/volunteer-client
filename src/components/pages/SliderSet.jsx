@@ -12,16 +12,14 @@ const SliderSet = () => {
 const [sortPost , setSortPost] =useState([])
 
 const {theme}=useContext(AuthContext)
-
+// load sorted post
 useEffect(()=>{
-  
 const handlePostSortData =async ()=>{
-  const {data} = await axios.get(`${import.meta.env.VITE_APIHOST}/sort`)
-
+const {data} = await axios.get(`${import.meta.env.VITE_APIHOST}/sort`)
 const sortedDta = data.splice(0,6)
-  setSortPost([...sortedDta])
-  }
-  handlePostSortData()
+setSortPost([...sortedDta])
+}
+handlePostSortData()
 },[])
 
 
