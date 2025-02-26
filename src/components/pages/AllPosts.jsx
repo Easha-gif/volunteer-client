@@ -14,21 +14,23 @@ const AllPosts = () => {
 
     const [sortPost , setSortPost] =useState([])
     const [search , setSearch] =useState("")
-    const [sort , setSort] =useState('')
     const [layout, setLayout] =useState(false)
 const {theme}=useContext(AuthContext)
 
 useEffect(()=>{
   
 const handlePostSortData =async ()=>{
-  const {data} = await axios.get(`${import.meta.env.VITE_APIHOST}/sortPost?search=${search}&sort=${sort}`)
+  const {data} = await axios.get(`${import.meta.env.VITE_APIHOST}/sortPost?search=${search}`)
 
   setSortPost(data)
   }
   handlePostSortData()
 },[search])
 
-
+const handleSort=async()=>{
+  const {data} = await axios.get(`${import.meta.env.VITE_APIHOST}/sort`)
+  setSortPost(data)
+}
 
 const handleTableLayout = ()=>{
   setLayout(true)
@@ -47,7 +49,7 @@ const handleCardLayout = ()=>{
                             <input type="text" onChange={(e)=>setSearch(e.target.value)} placeholder="Search" name="search" className="input input-bordered"/>
                         </div>
                         <div>
-                          <button onClick={setSort("true")} className="btn bg-slate-400">Sort By Deadline</button>
+                          <button onClick={handleSort} className="btn bg-slate-200 hover:bg-slate-300">Sort By Deadline</button>
                         </div>
                         <div><button onClick={handleCardLayout}><TfiLayoutGrid4 className={`${layout?"text-3xl text-gray-600 mr-3":"text-3xl text-blue-600 mr-3"}`}/></button>
                                   <button onClick={handleTableLayout}><HiMiniBars4 className={`${layout?"text-3xl text-blue-600":"text-3xl text-gray-600"}`}/></button>
