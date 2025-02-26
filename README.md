@@ -2,7 +2,7 @@
 
 Here you find volunteer and be a volunteer..
 
-[live link] https://sparkly-rolypoly-810eb2.netlify.app
+[live link]{ https://sparkly-rolypoly-810eb2.netlify.app}
 
 # Features
 
@@ -20,5 +20,4 @@ Here you find volunteer and be a volunteer..
 * react-helmet
 * react-datepicker
 * react-hot-toast
-* sweetalert2
 * swiper
