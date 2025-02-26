@@ -108,13 +108,13 @@ const handleCardLayout = ()=>{
     return (
         <div>
           <Helmet title="My Post"></Helmet>
-          <div className="flex justify-between items-center bg-white p-4 shadow-xl rounded-xl mb-4"> <h1 className="text-3xl text-black font-bold">My volunteer need posts : {myPost.length}</h1>
+          <div className="flex justify-between items-center bg-white py-4 px-8 shadow-xl rounded-xl mb-4"> <h1 className="text-3xl text-black font-bold">My volunteer need posts : {myPost.length}</h1>
           <div><button onClick={handleCardLayout}><TfiLayoutGrid4 className={`${layout?"text-3xl text-gray-900 mr-3":"text-3xl text-blue-600 mr-3"}`}/></button>
           <button onClick={handleTableLayout}><HiMiniBars4 className={`${layout?"text-3xl text-blue-600":"text-3xl text-gray-900"}`}/></button>
           </div>
           </div>
            
-     {layout&&<div className="overflow-x-auto mb-12">
+     {layout&&<div className="overflow-x-auto mb-12 md:w-11/12 mx-auto">
   <table className="table">
     {/* head */}
     <thead>
@@ -177,7 +177,7 @@ const handleCardLayout = ()=>{
    
   </table>
 </div>}
-{layout|| <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+{layout|| <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12 md:w-11/12 mx-auto">
   {myPost.map(post=><div className="border-2 bg-white p-4 rounded-md" key={post._id}>
  <div className="flex justify-between">
  <img className="w-16 h-16 rounded-3xl object-cover" src={post.photo} alt="" />
@@ -203,11 +203,8 @@ const handleCardLayout = ()=>{
 {myPost.length==0 &&<p className="text-2xl text-red-500 font-bold mt-4 mb-80">You don't have any posts.....</p>}
         {/* my requests */}
 
-
-
-
-<h1  className={`${theme?"text-white text-4xl font-bold pt-10":"text-4xl text-gray-900 font-bold pt-10"}`}>My Posted Requests</h1>
-          {layout&&<div className="overflow-x-auto mt-6 rounded-xl">
+<h1  className={`${theme?"text-white text-4xl font-bold pt-10":"text-4xl text-gray-900 font-bold pt-10 md:w-11/12 mx-auto"}`}>My Posted Requests</h1>
+          {layout&&<div className="overflow-x-auto mt-6 rounded-xl md:w-11/12 mx-auto">
   <table className="table">
     {/* head */}
     <thead>
@@ -269,7 +266,7 @@ const handleCardLayout = ()=>{
   </table>
 </div>}
 
-{layout|| <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12">
+{layout|| <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12 md:w-11/12 mx-auto">
   {myRequest.map(post=><div className="border-2 bg-white p-4 rounded-md" key={post._id}>
  <div className="flex justify-between">
   <div>

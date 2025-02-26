@@ -25,7 +25,7 @@ const Slider = () => {
         modules={[Autoplay, Pagination, Navigation]}
       >
         <SwiperSlide>
-            <div className='w-full h-[480px] bg-cover object-cover bg-center flex flex-col justify-center items-center'  style={{backgroundImage:`url(${img1})`}}>
+            <div className='w-full h-[540px] bg-cover object-cover bg-center flex flex-col justify-center items-center'  style={{backgroundImage:`url(${img1})`}}>
             <div className=' bg-black bg-opacity-80 text-center gap-5 py-6 px-28 rounded-xl'>
        <h1 className='text-5xl text-white font-bold '>Welcome to Volunteer <br></br>management site</h1>
        <p className='text-base text-white font-bold py-2'>Here you will find various information about volunteers.<br></br>And can join as a volunteer</p>
@@ -33,19 +33,19 @@ const Slider = () => {
        </div>
             </div>
         </SwiperSlide>
-        <SwiperSlide> <div className='w-full h-[480px] bg-cover  bg-center object-cover flex flex-col justify-center items-center' style={{backgroundImage:`url(${img3})`}}>
+        <SwiperSlide> <div className='w-full h-[540px] bg-cover  bg-center object-cover flex flex-col justify-center items-center' style={{backgroundImage:`url(${img3})`}}>
         <div className='bg-black bg-opacity-80 text-center gap-5 py-6 px-28 rounded-xl'>
        <h1 className='text-5xl text-white text-center font-bold'>Help People and make <br></br> happy</h1>
        <p className='text-base text-gray-200 text-center py-2'>Here you will find various information about volunteers.<br></br>And can join as a volunteer</p>
        </div>
             </div></SwiperSlide>
-        <SwiperSlide> <div  className='w-full h-[480px] bg-cover object-cover bg-center flex flex-col justify-center items-center' style={{backgroundImage:`url(${img4})`}}>
+        <SwiperSlide> <div  className='w-full h-[540px] bg-cover object-cover bg-center flex flex-col justify-center items-center' style={{backgroundImage:`url(${img4})`}}>
         <div className='bg-black bg-opacity-50 text-center gap-5 py-6 px-28 rounded-xl'>
         <h1 className='text-5xl text-white text-center font-bold'>Help People and make <br></br> happy</h1>
         <p className='text-base text-gray-200 text-center py-2'>Here you will find various information about volunteers.<br></br>And can join as a volunteer</p>
        </div>
             </div></SwiperSlide>
-        <SwiperSlide> <div  className='w-full h-[480px]  bg-cover object-cover bg-center flex flex-col justify-center items-center' style={{backgroundImage:`url(${img2})`}}>
+        <SwiperSlide> <div  className='w-full h-[540px]  bg-cover object-cover bg-center flex flex-col justify-center items-center' style={{backgroundImage:`url(${img2})`}}>
         <div className='bg-black bg-opacity-70 text-center gap-5 py-6 px-28 rounded-xl'>
         <h1 className='text-5xl text-white text-center font-bold'>Help People and make <br></br> happy</h1>
         <p className='text-base text-gray-200 text-center py-2'>Here you will find various information about volunteers.<br></br>And can join as a volunteer</p>

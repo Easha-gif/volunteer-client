@@ -20,13 +20,12 @@ const handleToggleTheme = () =>{
     <>
    <div className={`${theme?"bg-black":"bg-white"}`}>
     <Navbar handleToggleTheme={handleToggleTheme}theme={theme}></Navbar>
-   <div className='w-full lg:w-11/12 mx-auto'>
+  
    <div className="pt-20 min-h-screen">
    <Outlet></Outlet>
    </div>
     </div>
      <Footer></Footer>
-   </div>
     </>
   )
 }

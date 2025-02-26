@@ -58,7 +58,7 @@ const handleDelete = async(id)=>{
 
 
     return (
-        <div>
+        <div className="md:w-11/12 mx-auto">
           <Helmet title="My post request"></Helmet>
           <h1  className={`${theme?"text-white text-4xl font-bold pt-10":"text-4xl text-gray-900 font-bold pt-10"}`}>My Posted Requests</h1>
           <div className="overflow-x-auto mt-6 rounded-xl">

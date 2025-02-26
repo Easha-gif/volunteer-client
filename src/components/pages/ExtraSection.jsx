@@ -9,7 +9,7 @@ const ExtraSection = () => {
 const {theme}=useContext(AuthContext)
 
     return (
-       <div>
+       <div className='md:w-11/12 mx-auto'>
          <div className='flex flex-col lg:flex-row justify-between items-center bg-white shadow-xl border-4 rounded-lg px-3 py-20'>
             <div>
 <motion.h1 animate={{x:50}}

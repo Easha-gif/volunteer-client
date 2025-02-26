@@ -47,12 +47,12 @@ catch(err){
 
 
     return (
-        <div>
+        <div className="md:w-11/12 mx-auto">
 <Helmet title="Volunteer | Add post"></Helmet>
 
 <div>
     <h1 className={`${theme?"text-white text-4xl font-bold text-center mt-6 mb-4":"text-4xl text-gray-900 text-center font-bold mt-6 mb-4"}`}>Add Volunteer need post</h1>
-    <p className="text-base text-slate-500 text-center mb-10">if you need volunteers add a post.</p>
+    <p className="text-base text-slate-400 text-center mb-10">if you need volunteers add a post.</p>
 </div>
             <form onSubmit={handleAddPostForm}>
                 <div className="w-11/12 mx-auto px-10 bg-white border-2 mb-40 rounded-md border-green-300 py-8 mt-5">

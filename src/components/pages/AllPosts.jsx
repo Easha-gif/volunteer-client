@@ -41,7 +41,7 @@ const handleCardLayout = ()=>{
        <div>
         <Helmet title="Volunteer | All Posts"></Helmet>
     <div className="flex flex-col lg:flex-row gap-8 justify-evenly items-center bg-white shadow-xl p-3 rounded-lg mb-5">
-    <div><h1 className={`${theme?"text-white text-3xl font-bold":"text-3xl text-gray-900 font-bold"}`}>All Volunteer Need Posts</h1></div>
+    <div><h1 className={`${theme?"text-black text-3xl font-bold":"text-3xl text-gray-900 font-bold"}`}>All Volunteer Need Posts</h1></div>
         <div className="flex items-center w-1/2">
                             <input type="text" onChange={(e)=>setSearch(e.target.value)} placeholder="Search" name="search" className="input input-bordered w-1/2"/>
                        <button className="text-white text-base  bg-slate-800 px-6 py-3 rounded-lg">Search</button>
@@ -50,7 +50,7 @@ const handleCardLayout = ()=>{
                                   <button onClick={handleTableLayout}><HiMiniBars4 className={`${layout?"text-3xl text-blue-600":"text-3xl text-gray-600"}`}/></button>
                                   </div>
     </div>
-        {layout|| <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+        {layout|| <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 md:w-11/12 mx-auto">
          {sortPost.map(post=><div key={post._id} className="bg-blue-100 relative shadow-lg p-4 rounded-lg mb-2 h-[550px]">
     <div>
       <img className="w-full h-56 mb-4 rounded-md border-2 object-cover hover:border-2 hover:border-gray-500" src={post.photo} alt="" />
@@ -77,7 +77,7 @@ const handleCardLayout = ()=>{
          )}
         </div>}
 
-{layout&&<div className="overflow-x-auto mb-12">
+{layout&&<div className="overflow-x-auto mb-12 md:w-11/12 mx-auto">
   <table className="table">
     {/* head */}
     <thead>
